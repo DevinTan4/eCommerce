@@ -8,6 +8,7 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import commerce.register.RegisterPage;
+import commerce.view.ProductView;
 
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
@@ -116,6 +117,9 @@ public class LoginPage extends JFrame {
                 
                 if (isValidLogin(enteredUsername, enteredPassword)) {
                     JOptionPane.showMessageDialog(LoginPage.this, "Login Successful!");
+                    
+                    openProductView();
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(LoginPage.this, "Invalid username or password. Try again.");
                     usernameField.setText("");
@@ -166,6 +170,20 @@ public class LoginPage extends JFrame {
             ex.printStackTrace();
         }
         return false;
+	}
+	
+	//Go to ProductView page
+	private void openProductView() {
+	    EventQueue.invokeLater(new Runnable() {
+	        public void run() {
+	            try {
+	                ProductView productView = new ProductView();
+	                productView.setVisible(true);
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    });
 	}
 }
 

@@ -14,6 +14,8 @@ import java.awt.Frame;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
@@ -69,11 +71,11 @@ public class ProductView extends JFrame {
 		productName.setBounds(10, 84, 69, 26);
 		panel.add(productName);
 		
-		JLabel lblNewLabel_1 = new JLabel("Rp 3100");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1.setBounds(10, 129, 64, 19);
-		panel.add(lblNewLabel_1);
+		JLabel productPrice = new JLabel("Rp 3100");
+		productPrice.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice.setForeground(new Color(239, 110, 32));
+		productPrice.setBounds(10, 129, 64, 19);
+		panel.add(productPrice);
 		
 		JButton addToCart = new JButton("+ Keranjang");
 		addToCart.addActionListener(createAddToCartActionListener("Indomie Kuah Kari Ayam"));
@@ -82,6 +84,14 @@ public class ProductView extends JFrame {
 		addToCart.setForeground(new Color(255, 255, 255));
 		addToCart.setBounds(0, 149, 101, 24);
 		panel.add(addToCart);
+		
+		JLabel lblNewLabel = new JLabel("Stok: ");
+		lblNewLabel.setBounds(10, 109, 28, 14);
+		panel.add(lblNewLabel);
+		
+		JLabel productStock = new JLabel("");
+		productStock.setBounds(33, 109, 28, 14);
+		panel.add(productStock);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(192, 192, 192));
@@ -108,27 +118,35 @@ public class ProductView extends JFrame {
 		addToCart_1.setBounds(0, 149, 101, 24);
 		panel_1.add(addToCart_1);
 		
-		JLabel lblNewLabel_1_9 = new JLabel("Rp 3100");
-		lblNewLabel_1_9.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_9.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_9.setBounds(10, 131, 64, 19);
-		panel_1.add(lblNewLabel_1_9);
+		JLabel productPrice1 = new JLabel("Rp 3100");
+		productPrice1.setForeground(new Color(239, 110, 32));
+		productPrice1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice1.setBounds(10, 131, 64, 19);
+		panel_1.add(productPrice1);
 		
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1.setBounds(289, 56, 101, 173);
-		contentPane.add(panel_1_1);
-		panel_1_1.setLayout(null);
+		JLabel lblNewLabel_1 = new JLabel("Stok: ");
+		lblNewLabel_1.setBounds(10, 110, 28, 14);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel productStock1 = new JLabel("");
+		productStock1.setBounds(33, 110, 28, 14);
+		panel_1.add(productStock1);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(192, 192, 192));
+		panel_2.setBounds(289, 56, 101, 173);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
 		
 		JLabel productImage2 = new JLabel("New label");
 		productImage2.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\pocky-cookies.png"));
 		productImage2.setBounds(0, 0, 101, 85);
-		panel_1_1.add(productImage2);
+		panel_2.add(productImage2);
 		
 		JLabel productName2 = new JLabel("<html>Pocky Cookies &<br>Cream<html>");
 		productName2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName2.setBounds(10, 84, 85, 26);
-		panel_1_1.add(productName2);
+		panel_2.add(productName2);
 		
 		JButton addToCart_2 = new JButton("+ Keranjang");
 		addToCart_2.addActionListener(createAddToCartActionListener("Pocky Cookies & Cream"));
@@ -136,29 +154,37 @@ public class ProductView extends JFrame {
 		addToCart_2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_2.setBackground(new Color(239, 110, 32));
 		addToCart_2.setBounds(0, 149, 101, 24);
-		panel_1_1.add(addToCart_2);
+		panel_2.add(addToCart_2);
 		
-		JLabel lblNewLabel_1_10 = new JLabel("Rp 8700");
-		lblNewLabel_1_10.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_10.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_10.setBounds(10, 131, 64, 19);
-		panel_1_1.add(lblNewLabel_1_10);
+		JLabel productPrice2 = new JLabel("Rp 8700");
+		productPrice2.setForeground(new Color(239, 110, 32));
+		productPrice2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice2.setBounds(10, 131, 64, 19);
+		panel_2.add(productPrice2);
 		
-		JPanel panel_1_1_1 = new JPanel();
-		panel_1_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1_1.setBounds(417, 56, 101, 173);
-		contentPane.add(panel_1_1_1);
-		panel_1_1_1.setLayout(null);
+		JLabel lblNewLabel_2 = new JLabel("Stok: ");
+		lblNewLabel_2.setBounds(10, 108, 28, 14);
+		panel_2.add(lblNewLabel_2);
+		
+		JLabel productStock2 = new JLabel("");
+		productStock2.setBounds(33, 108, 28, 14);
+		panel_2.add(productStock2);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(192, 192, 192));
+		panel_3.setBounds(417, 56, 101, 173);
+		contentPane.add(panel_3);
+		panel_3.setLayout(null);
 		
 		JLabel productImage3 = new JLabel("New label");
 		productImage3.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\pocky-matcha.png"));
 		productImage3.setBounds(0, 0, 101, 85);
-		panel_1_1_1.add(productImage3);
+		panel_3.add(productImage3);
 		
 		JLabel productName3 = new JLabel("Pocky Matcha");
 		productName3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName3.setBounds(10, 84, 66, 14);
-		panel_1_1_1.add(productName3);
+		panel_3.add(productName3);
 		
 		JButton addToCart_3 = new JButton("+ Keranjang");
 		addToCart_3.addActionListener(createAddToCartActionListener("Pocky Matcha"));
@@ -166,30 +192,38 @@ public class ProductView extends JFrame {
 		addToCart_3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_3.setBackground(new Color(239, 110, 32));
 		addToCart_3.setBounds(0, 149, 101, 24);
-		panel_1_1_1.add(addToCart_3);
+		panel_3.add(addToCart_3);
 		
-		JLabel lblNewLabel_1_11 = new JLabel("Rp 8700");
-		lblNewLabel_1_11.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_11.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_11.setBounds(10, 130, 64, 19);
-		panel_1_1_1.add(lblNewLabel_1_11);
+		JLabel productPrice3 = new JLabel("Rp 8700");
+		productPrice3.setForeground(new Color(239, 110, 32));
+		productPrice3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice3.setBounds(10, 130, 64, 19);
+		panel_3.add(productPrice3);
 		
-		JPanel panel_1_1_1_1 = new JPanel();
-		panel_1_1_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1_1_1.setBounds(546, 56, 101, 173);
-		contentPane.add(panel_1_1_1_1);
-		panel_1_1_1_1.setLayout(null);
+		JLabel lblNewLabel_3 = new JLabel("Stok: ");
+		lblNewLabel_3.setBounds(10, 109, 28, 14);
+		panel_3.add(lblNewLabel_3);
+		
+		JLabel productStock3 = new JLabel("");
+		productStock3.setBounds(33, 109, 28, 14);
+		panel_3.add(productStock3);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(192, 192, 192));
+		panel_4.setBounds(546, 56, 101, 173);
+		contentPane.add(panel_4);
+		panel_4.setLayout(null);
 		
 		JLabel productImage4 = new JLabel("New label");
 		productImage4.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\samyang-original.png"));
 		productImage4.setBounds(0, 0, 101, 85);
-		panel_1_1_1_1.add(productImage4);
+		panel_4.add(productImage4);
 		
 		JLabel productName4 = new JLabel("<html>Samyang Buldak<br>Original<html>");
 		productName4.setHorizontalAlignment(SwingConstants.TRAILING);
 		productName4.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName4.setBounds(10, 84, 83, 26);
-		panel_1_1_1_1.add(productName4);
+		panel_4.add(productName4);
 		
 		JButton addToCart_4 = new JButton("+ Keranjang");
 		addToCart_4.addActionListener(createAddToCartActionListener("Samyang Buldak Original"));
@@ -197,30 +231,38 @@ public class ProductView extends JFrame {
 		addToCart_4.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_4.setBackground(new Color(239, 110, 32));
 		addToCart_4.setBounds(0, 149, 101, 24);
-		panel_1_1_1_1.add(addToCart_4);
+		panel_4.add(addToCart_4);
 		
-		JLabel lblNewLabel_1_12 = new JLabel("Rp 23900");
-		lblNewLabel_1_12.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_12.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_12.setBounds(10, 132, 74, 19);
-		panel_1_1_1_1.add(lblNewLabel_1_12);
+		JLabel productPrice4 = new JLabel("Rp 23900");
+		productPrice4.setForeground(new Color(239, 110, 32));
+		productPrice4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice4.setBounds(10, 132, 74, 19);
+		panel_4.add(productPrice4);
 		
-		JPanel panel_1_1_1_1_1 = new JPanel();
-		panel_1_1_1_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1_1_1_1.setBounds(40, 240, 101, 173);
-		contentPane.add(panel_1_1_1_1_1);
-		panel_1_1_1_1_1.setLayout(null);
+		JLabel lblNewLabel_4 = new JLabel("Stok: ");
+		lblNewLabel_4.setBounds(10, 107, 28, 14);
+		panel_4.add(lblNewLabel_4);
+		
+		JLabel productStock4 = new JLabel("");
+		productStock4.setBounds(33, 107, 28, 14);
+		panel_4.add(productStock4);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(192, 192, 192));
+		panel_5.setBounds(40, 240, 101, 173);
+		contentPane.add(panel_5);
+		panel_5.setLayout(null);
 		
 		JLabel productImage5 = new JLabel("New label");
 		productImage5.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\samyang-carbonara.png"));
 		productImage5.setBounds(0, 0, 101, 85);
-		panel_1_1_1_1_1.add(productImage5);
+		panel_5.add(productImage5);
 		
 		JLabel productName5 = new JLabel("<html>Samyang Buldak<br>Carbonara<html>");
 		productName5.setHorizontalAlignment(SwingConstants.TRAILING);
 		productName5.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName5.setBounds(10, 84, 83, 26);
-		panel_1_1_1_1_1.add(productName5);
+		panel_5.add(productName5);
 		
 		JButton addToCart_5 = new JButton("+ Keranjang");
 		addToCart_5.addActionListener(createAddToCartActionListener("Samyang Buldak Carbonara"));
@@ -228,30 +270,38 @@ public class ProductView extends JFrame {
 		addToCart_5.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_5.setBackground(new Color(239, 110, 32));
 		addToCart_5.setBounds(0, 149, 101, 24);
-		panel_1_1_1_1_1.add(addToCart_5);
+		panel_5.add(addToCart_5);
 		
-		JLabel lblNewLabel_1_13 = new JLabel("Rp 21900");
-		lblNewLabel_1_13.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_13.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_13.setBounds(10, 131, 74, 19);
-		panel_1_1_1_1_1.add(lblNewLabel_1_13);
+		JLabel productPrice5 = new JLabel("Rp 21900");
+		productPrice5.setForeground(new Color(239, 110, 32));
+		productPrice5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice5.setBounds(10, 131, 74, 19);
+		panel_5.add(productPrice5);
 		
-		JPanel panel_1_1_1_1_1_1 = new JPanel();
-		panel_1_1_1_1_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1_1_1_1_1.setBounds(162, 240, 101, 173);
-		contentPane.add(panel_1_1_1_1_1_1);
-		panel_1_1_1_1_1_1.setLayout(null);
+		JLabel lblNewLabel_5 = new JLabel("Stok: ");
+		lblNewLabel_5.setBounds(10, 106, 28, 14);
+		panel_5.add(lblNewLabel_5);
+		
+		JLabel productStock5 = new JLabel("");
+		productStock5.setBounds(33, 106, 28, 14);
+		panel_5.add(productStock5);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(new Color(192, 192, 192));
+		panel_6.setBounds(162, 240, 101, 173);
+		contentPane.add(panel_6);
+		panel_6.setLayout(null);
 		
 		JLabel productImage6 = new JLabel("New label");
 		productImage6.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\daia.jpg"));
 		productImage6.setBounds(0, 0, 101, 85);
-		panel_1_1_1_1_1_1.add(productImage6);
+		panel_6.add(productImage6);
 		
 		JLabel productName6 = new JLabel("<html>Daia Detergen<br>Bubuk Putih<html>");
 		productName6.setHorizontalAlignment(SwingConstants.TRAILING);
 		productName6.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName6.setBounds(10, 84, 73, 26);
-		panel_1_1_1_1_1_1.add(productName6);
+		panel_6.add(productName6);
 		
 		JButton addToCart_6 = new JButton("+ Keranjang");
 		addToCart_6.addActionListener(createAddToCartActionListener("Daia Detergen Bubuk Putih"));
@@ -259,30 +309,38 @@ public class ProductView extends JFrame {
 		addToCart_6.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_6.setBackground(new Color(239, 110, 32));
 		addToCart_6.setBounds(0, 149, 101, 24);
-		panel_1_1_1_1_1_1.add(addToCart_6);
+		panel_6.add(addToCart_6);
 		
-		JLabel lblNewLabel_1_14 = new JLabel("Rp 10000");
-		lblNewLabel_1_14.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_14.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_14.setBounds(15, 132, 74, 19);
-		panel_1_1_1_1_1_1.add(lblNewLabel_1_14);
+		JLabel productPrice6 = new JLabel("Rp 10000");
+		productPrice6.setForeground(new Color(239, 110, 32));
+		productPrice6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice6.setBounds(15, 132, 74, 19);
+		panel_6.add(productPrice6);
 		
-		JPanel panel_1_1_1_1_1_1_1 = new JPanel();
-		panel_1_1_1_1_1_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1_1_1_1_1_1.setBounds(289, 240, 101, 173);
-		contentPane.add(panel_1_1_1_1_1_1_1);
-		panel_1_1_1_1_1_1_1.setLayout(null);
+		JLabel lblNewLabel_6 = new JLabel("Stok: ");
+		lblNewLabel_6.setBounds(10, 107, 28, 14);
+		panel_6.add(lblNewLabel_6);
+		
+		JLabel productStock6 = new JLabel("");
+		productStock6.setBounds(33, 107, 28, 14);
+		panel_6.add(productStock6);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBackground(new Color(192, 192, 192));
+		panel_7.setBounds(289, 240, 101, 173);
+		contentPane.add(panel_7);
+		panel_7.setLayout(null);
 		
 		JLabel productImage7 = new JLabel("New label");
 		productImage7.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\rinso.jpg"));
 		productImage7.setBounds(0, 0, 101, 85);
-		panel_1_1_1_1_1_1_1.add(productImage7);
+		panel_7.add(productImage7);
 		
 		JLabel productName7 = new JLabel("Rinso Detergen");
 		productName7.setHorizontalAlignment(SwingConstants.TRAILING);
 		productName7.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName7.setBounds(10, 84, 77, 13);
-		panel_1_1_1_1_1_1_1.add(productName7);
+		panel_7.add(productName7);
 		
 		JButton addToCart_7 = new JButton("+ Keranjang");
 		addToCart_7.addActionListener(createAddToCartActionListener("Rinso Detergen"));
@@ -290,30 +348,38 @@ public class ProductView extends JFrame {
 		addToCart_7.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_7.setBackground(new Color(239, 110, 32));
 		addToCart_7.setBounds(0, 149, 101, 24);
-		panel_1_1_1_1_1_1_1.add(addToCart_7);
+		panel_7.add(addToCart_7);
 		
-		JLabel lblNewLabel_1_15 = new JLabel("Rp 10000");
-		lblNewLabel_1_15.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_15.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_15.setBounds(10, 132, 74, 19);
-		panel_1_1_1_1_1_1_1.add(lblNewLabel_1_15);
+		JLabel productPrice7 = new JLabel("Rp 10000");
+		productPrice7.setForeground(new Color(239, 110, 32));
+		productPrice7.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice7.setBounds(10, 132, 74, 19);
+		panel_7.add(productPrice7);
 		
-		JPanel panel_1_1_1_1_1_1_1_1 = new JPanel();
-		panel_1_1_1_1_1_1_1_1.setBackground(new Color(192, 192, 192));
-		panel_1_1_1_1_1_1_1_1.setBounds(417, 240, 101, 173);
-		contentPane.add(panel_1_1_1_1_1_1_1_1);
-		panel_1_1_1_1_1_1_1_1.setLayout(null);
+		JLabel lblNewLabel_7 = new JLabel("Stok: ");
+		lblNewLabel_7.setBounds(10, 108, 28, 14);
+		panel_7.add(lblNewLabel_7);
+		
+		JLabel productStock7 = new JLabel("");
+		productStock7.setBounds(33, 108, 28, 14);
+		panel_7.add(productStock7);
+		
+		JPanel panel_8 = new JPanel();
+		panel_8.setBackground(new Color(192, 192, 192));
+		panel_8.setBounds(417, 240, 101, 173);
+		contentPane.add(panel_8);
+		panel_8.setLayout(null);
 		
 		JLabel productImage8 = new JLabel("New label");
 		productImage8.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\nu-original.png"));
 		productImage8.setBounds(0, 0, 101, 85);
-		panel_1_1_1_1_1_1_1_1.add(productImage8);
+		panel_8.add(productImage8);
 		
 		JLabel productName8 = new JLabel("<html>Nu Greentea<br>Original<html>");
 		productName8.setHorizontalAlignment(SwingConstants.TRAILING);
 		productName8.setFont(new Font("Tahoma", Font.BOLD, 10));
 		productName8.setBounds(10, 84, 62, 26);
-		panel_1_1_1_1_1_1_1_1.add(productName8);
+		panel_8.add(productName8);
 		
 		JButton addToCart_8 = new JButton("+ Keranjang");
 		addToCart_8.addActionListener(createAddToCartActionListener("Nu Greentea Original"));
@@ -321,30 +387,38 @@ public class ProductView extends JFrame {
 		addToCart_8.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_8.setBackground(new Color(239, 110, 32));
 		addToCart_8.setBounds(0, 149, 101, 24);
-		panel_1_1_1_1_1_1_1_1.add(addToCart_8);
+		panel_8.add(addToCart_8);
 		
-		JLabel lblNewLabel_1_16 = new JLabel("Rp 4900");
-		lblNewLabel_1_16.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_16.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_16.setBounds(10, 131, 64, 19);
-		panel_1_1_1_1_1_1_1_1.add(lblNewLabel_1_16);
+		JLabel productPrice8 = new JLabel("Rp 4900");
+		productPrice8.setForeground(new Color(239, 110, 32));
+		productPrice8.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice8.setBounds(10, 131, 64, 19);
+		panel_8.add(productPrice8);
 		
-		JPanel panel_1_1_1_1_1_1_1_2 = new JPanel();
-		panel_1_1_1_1_1_1_1_2.setBackground(new Color(192, 192, 192));
-		panel_1_1_1_1_1_1_1_2.setBounds(546, 240, 101, 173);
-		contentPane.add(panel_1_1_1_1_1_1_1_2);
-		panel_1_1_1_1_1_1_1_2.setLayout(null);
+		JLabel lblNewLabel_8 = new JLabel("Stok: ");
+		lblNewLabel_8.setBounds(10, 110, 28, 14);
+		panel_8.add(lblNewLabel_8);
+		
+		JLabel productStock8 = new JLabel("");
+		productStock8.setBounds(33, 110, 28, 14);
+		panel_8.add(productStock8);
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setBackground(new Color(192, 192, 192));
+		panel_9.setBounds(546, 240, 101, 173);
+		contentPane.add(panel_9);
+		panel_9.setLayout(null);
 		
 		JLabel productImage9 = new JLabel("New label");
 		productImage9.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\thaimilk-greentea.png"));
 		productImage9.setBounds(0, 0, 101, 85);
-		panel_1_1_1_1_1_1_1_2.add(productImage9);
+		panel_9.add(productImage9);
 		
 		JLabel productName9 = new JLabel("<html>Thai Milk<br>Green Tea<html>");
 		productName9.setHorizontalAlignment(SwingConstants.TRAILING);
 		productName9.setFont(new Font("Tahoma", Font.BOLD, 10));
-		productName9.setBounds(10, 84, 52, 26);
-		panel_1_1_1_1_1_1_1_2.add(productName9);
+		productName9.setBounds(10, 82, 52, 26);
+		panel_9.add(productName9);
 		
 		JButton addToCart_9 = new JButton("+ Keranjang");
 		addToCart_9.addActionListener(createAddToCartActionListener("Indomie "));
@@ -352,13 +426,35 @@ public class ProductView extends JFrame {
 		addToCart_9.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_9.setBackground(new Color(239, 110, 32));
 		addToCart_9.setBounds(0, 149, 101, 24);
-		panel_1_1_1_1_1_1_1_2.add(addToCart_9);
+		panel_9.add(addToCart_9);
 		
-		JLabel lblNewLabel_1_17 = new JLabel("Rp 9100");
-		lblNewLabel_1_17.setForeground(new Color(239, 110, 32));
-		lblNewLabel_1_17.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_17.setBounds(10, 131, 64, 19);
-		panel_1_1_1_1_1_1_1_2.add(lblNewLabel_1_17);
+		JLabel productPrice9 = new JLabel("Rp 9100");
+		productPrice9.setForeground(new Color(239, 110, 32));
+		productPrice9.setFont(new Font("Tahoma", Font.BOLD, 15));
+		productPrice9.setBounds(10, 131, 64, 19);
+		panel_9.add(productPrice9);
+		
+		JLabel lblNewLabel_9 = new JLabel("Stok: ");
+		lblNewLabel_9.setBounds(10, 106, 28, 14);
+		panel_9.add(lblNewLabel_9);
+		
+		JLabel productStock9 = new JLabel("");
+		productStock9.setBounds(33, 106, 28, 14);
+		panel_9.add(productStock9);
+		
+		JLabel cartIcon = new JLabel("");
+		cartIcon.setIcon(new ImageIcon("C:\\Users\\LENOVO\\Downloads\\cart (2).png"));
+		cartIcon.setBounds(619, 11, 28, 22);
+		contentPane.add(cartIcon);
+		
+		// Add ActionListener to cartIcon
+        cartIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Open ShoppingCartView when cartIcon is clicked
+                openShoppingCartView();
+            }
+        });
 	}
 	
 	private ActionListener createAddToCartActionListener(String productName) {
@@ -378,6 +474,18 @@ public class ProductView extends JFrame {
 	        }
 	    };
 	}
+	
+	//Open ShoppingCartView function
+	private void openShoppingCartView() {
+        // Create an instance of ShoppingCartView
+        ShoppingCartView shoppingCartView = new ShoppingCartView();
+
+        // Make ShoppingCartView visible
+        shoppingCartView.setVisible(true);
+
+        // Hide the current ProductView
+        this.setVisible(false);
+    }
 }
 
 
