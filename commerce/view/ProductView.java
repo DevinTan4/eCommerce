@@ -78,7 +78,7 @@ public class ProductView extends JFrame {
 		panel.add(productPrice);
 		
 		JButton addToCart = new JButton("+ Keranjang");
-		addToCart.addActionListener(createAddToCartActionListener("Indomie Kuah Kari Ayam"));
+		addToCart.addActionListener(createAddToCartActionListener("Indomie Kuah Kari Ayam", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\indomie-kari.png"));
 		addToCart.setBackground(new Color(239, 110, 32));
 		addToCart.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart.setForeground(new Color(255, 255, 255));
@@ -86,10 +86,12 @@ public class ProductView extends JFrame {
 		panel.add(addToCart);
 		
 		JLabel lblNewLabel = new JLabel("Stok: ");
-		lblNewLabel.setBounds(10, 109, 28, 14);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel.setBounds(10, 109, 37, 14);
 		panel.add(lblNewLabel);
 		
-		JLabel productStock = new JLabel("");
+		JLabel productStock = new JLabel("20");
+		productStock.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock.setBounds(33, 109, 28, 14);
 		panel.add(productStock);
 		
@@ -111,7 +113,8 @@ public class ProductView extends JFrame {
 		panel_1.add(productName1);
 		
 		JButton addToCart_1 = new JButton("+ Keranjang");
-		addToCart_1.addActionListener(createAddToCartActionListener("Indomie Goreng Rendang"));
+		addToCart_1.addActionListener(createAddToCartActionListener("Indomie Goreng Rendang", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\indomie-rendang.png"));
+		productImage1.setBounds(0, 0, 101, 85);
 		addToCart_1.setForeground(Color.WHITE);
 		addToCart_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_1.setBackground(new Color(239, 110, 32));
@@ -125,10 +128,12 @@ public class ProductView extends JFrame {
 		panel_1.add(productPrice1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Stok: ");
-		lblNewLabel_1.setBounds(10, 110, 28, 14);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_1.setBounds(10, 110, 35, 14);
 		panel_1.add(lblNewLabel_1);
 		
-		JLabel productStock1 = new JLabel("");
+		JLabel productStock1 = new JLabel("30");
+		productStock1.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock1.setBounds(33, 110, 28, 14);
 		panel_1.add(productStock1);
 		
@@ -149,7 +154,7 @@ public class ProductView extends JFrame {
 		panel_2.add(productName2);
 		
 		JButton addToCart_2 = new JButton("+ Keranjang");
-		addToCart_2.addActionListener(createAddToCartActionListener("Pocky Cookies & Cream"));
+		addToCart_2.addActionListener(createAddToCartActionListener("Pocky Cookies & Cream", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\pocky-cookies.png"));
 		addToCart_2.setForeground(Color.WHITE);
 		addToCart_2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_2.setBackground(new Color(239, 110, 32));
@@ -163,10 +168,12 @@ public class ProductView extends JFrame {
 		panel_2.add(productPrice2);
 		
 		JLabel lblNewLabel_2 = new JLabel("Stok: ");
-		lblNewLabel_2.setBounds(10, 108, 28, 14);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_2.setBounds(10, 108, 35, 14);
 		panel_2.add(lblNewLabel_2);
 		
-		JLabel productStock2 = new JLabel("");
+		JLabel productStock2 = new JLabel("25");
+		productStock2.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock2.setBounds(33, 108, 28, 14);
 		panel_2.add(productStock2);
 		
@@ -187,7 +194,7 @@ public class ProductView extends JFrame {
 		panel_3.add(productName3);
 		
 		JButton addToCart_3 = new JButton("+ Keranjang");
-		addToCart_3.addActionListener(createAddToCartActionListener("Pocky Matcha"));
+		addToCart_3.addActionListener(createAddToCartActionListener("Pocky Matcha", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\pocky-matcha.png"));
 		addToCart_3.setForeground(Color.WHITE);
 		addToCart_3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_3.setBackground(new Color(239, 110, 32));
@@ -201,10 +208,12 @@ public class ProductView extends JFrame {
 		panel_3.add(productPrice3);
 		
 		JLabel lblNewLabel_3 = new JLabel("Stok: ");
-		lblNewLabel_3.setBounds(10, 109, 28, 14);
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_3.setBounds(10, 109, 35, 14);
 		panel_3.add(lblNewLabel_3);
 		
-		JLabel productStock3 = new JLabel("");
+		JLabel productStock3 = new JLabel("35");
+		productStock3.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock3.setBounds(33, 109, 28, 14);
 		panel_3.add(productStock3);
 		
@@ -226,7 +235,7 @@ public class ProductView extends JFrame {
 		panel_4.add(productName4);
 		
 		JButton addToCart_4 = new JButton("+ Keranjang");
-		addToCart_4.addActionListener(createAddToCartActionListener("Samyang Buldak Original"));
+		addToCart_4.addActionListener(createAddToCartActionListener("Samyang Buldak Original", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\samyang-original.png"));
 		addToCart_4.setForeground(Color.WHITE);
 		addToCart_4.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_4.setBackground(new Color(239, 110, 32));
@@ -240,10 +249,12 @@ public class ProductView extends JFrame {
 		panel_4.add(productPrice4);
 		
 		JLabel lblNewLabel_4 = new JLabel("Stok: ");
-		lblNewLabel_4.setBounds(10, 107, 28, 14);
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_4.setBounds(10, 107, 35, 14);
 		panel_4.add(lblNewLabel_4);
 		
-		JLabel productStock4 = new JLabel("");
+		JLabel productStock4 = new JLabel("20");
+		productStock4.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock4.setBounds(33, 107, 28, 14);
 		panel_4.add(productStock4);
 		
@@ -265,7 +276,7 @@ public class ProductView extends JFrame {
 		panel_5.add(productName5);
 		
 		JButton addToCart_5 = new JButton("+ Keranjang");
-		addToCart_5.addActionListener(createAddToCartActionListener("Samyang Buldak Carbonara"));
+		addToCart_5.addActionListener(createAddToCartActionListener("Samyang Buldak Carbonara", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\samyang-carbonara.png"));
 		addToCart_5.setForeground(Color.WHITE);
 		addToCart_5.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_5.setBackground(new Color(239, 110, 32));
@@ -279,10 +290,12 @@ public class ProductView extends JFrame {
 		panel_5.add(productPrice5);
 		
 		JLabel lblNewLabel_5 = new JLabel("Stok: ");
-		lblNewLabel_5.setBounds(10, 106, 28, 14);
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_5.setBounds(10, 106, 35, 14);
 		panel_5.add(lblNewLabel_5);
 		
-		JLabel productStock5 = new JLabel("");
+		JLabel productStock5 = new JLabel("20");
+		productStock5.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock5.setBounds(33, 106, 28, 14);
 		panel_5.add(productStock5);
 		
@@ -304,7 +317,7 @@ public class ProductView extends JFrame {
 		panel_6.add(productName6);
 		
 		JButton addToCart_6 = new JButton("+ Keranjang");
-		addToCart_6.addActionListener(createAddToCartActionListener("Daia Detergen Bubuk Putih"));
+		addToCart_6.addActionListener(createAddToCartActionListener("Daia Detergen Bubuk Putih", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\daia.jpg"));
 		addToCart_6.setForeground(Color.WHITE);
 		addToCart_6.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_6.setBackground(new Color(239, 110, 32));
@@ -318,10 +331,12 @@ public class ProductView extends JFrame {
 		panel_6.add(productPrice6);
 		
 		JLabel lblNewLabel_6 = new JLabel("Stok: ");
-		lblNewLabel_6.setBounds(10, 107, 28, 14);
+		lblNewLabel_6.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_6.setBounds(10, 107, 35, 14);
 		panel_6.add(lblNewLabel_6);
 		
-		JLabel productStock6 = new JLabel("");
+		JLabel productStock6 = new JLabel("40");
+		productStock6.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock6.setBounds(33, 107, 28, 14);
 		panel_6.add(productStock6);
 		
@@ -343,7 +358,7 @@ public class ProductView extends JFrame {
 		panel_7.add(productName7);
 		
 		JButton addToCart_7 = new JButton("+ Keranjang");
-		addToCart_7.addActionListener(createAddToCartActionListener("Rinso Detergen"));
+		addToCart_7.addActionListener(createAddToCartActionListener("Rinso Detergen", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\rinso.jpg"));
 		addToCart_7.setForeground(Color.WHITE);
 		addToCart_7.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_7.setBackground(new Color(239, 110, 32));
@@ -357,10 +372,12 @@ public class ProductView extends JFrame {
 		panel_7.add(productPrice7);
 		
 		JLabel lblNewLabel_7 = new JLabel("Stok: ");
-		lblNewLabel_7.setBounds(10, 108, 28, 14);
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_7.setBounds(10, 108, 35, 14);
 		panel_7.add(lblNewLabel_7);
 		
-		JLabel productStock7 = new JLabel("");
+		JLabel productStock7 = new JLabel("40");
+		productStock7.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock7.setBounds(33, 108, 28, 14);
 		panel_7.add(productStock7);
 		
@@ -382,7 +399,7 @@ public class ProductView extends JFrame {
 		panel_8.add(productName8);
 		
 		JButton addToCart_8 = new JButton("+ Keranjang");
-		addToCart_8.addActionListener(createAddToCartActionListener("Nu Greentea Original"));
+		addToCart_8.addActionListener(createAddToCartActionListener("Nu Greentea Original", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\nu-original.png"));
 		addToCart_8.setForeground(Color.WHITE);
 		addToCart_8.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_8.setBackground(new Color(239, 110, 32));
@@ -396,10 +413,12 @@ public class ProductView extends JFrame {
 		panel_8.add(productPrice8);
 		
 		JLabel lblNewLabel_8 = new JLabel("Stok: ");
-		lblNewLabel_8.setBounds(10, 110, 28, 14);
+		lblNewLabel_8.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_8.setBounds(10, 110, 35, 14);
 		panel_8.add(lblNewLabel_8);
 		
-		JLabel productStock8 = new JLabel("");
+		JLabel productStock8 = new JLabel("50");
+		productStock8.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock8.setBounds(33, 110, 28, 14);
 		panel_8.add(productStock8);
 		
@@ -421,7 +440,7 @@ public class ProductView extends JFrame {
 		panel_9.add(productName9);
 		
 		JButton addToCart_9 = new JButton("+ Keranjang");
-		addToCart_9.addActionListener(createAddToCartActionListener("Indomie "));
+		addToCart_9.addActionListener(createAddToCartActionListener("Thai Milk Green Tea", "C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Products\\thaimilk-greentea.png"));
 		addToCart_9.setForeground(Color.WHITE);
 		addToCart_9.setFont(new Font("Tahoma", Font.BOLD, 10));
 		addToCart_9.setBackground(new Color(239, 110, 32));
@@ -435,10 +454,12 @@ public class ProductView extends JFrame {
 		panel_9.add(productPrice9);
 		
 		JLabel lblNewLabel_9 = new JLabel("Stok: ");
-		lblNewLabel_9.setBounds(10, 106, 28, 14);
+		lblNewLabel_9.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNewLabel_9.setBounds(10, 106, 35, 14);
 		panel_9.add(lblNewLabel_9);
 		
-		JLabel productStock9 = new JLabel("");
+		JLabel productStock9 = new JLabel("50");
+		productStock9.setHorizontalAlignment(SwingConstants.TRAILING);
 		productStock9.setBounds(33, 106, 28, 14);
 		panel_9.add(productStock9);
 		
@@ -457,13 +478,20 @@ public class ProductView extends JFrame {
         });
 	}
 	
-	private ActionListener createAddToCartActionListener(String productName) {
+	private ActionListener createAddToCartActionListener(String productName, String imagePath) {
 	    return new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
 	            try {
 	                showMessage(productName + " added to cart successfully!");
+	                ShoppingCartView shoppingCartView = new ShoppingCartView();
+	                
+	                shoppingCartView.setProductName(productName);
+	                shoppingCartView.setProductImage(imagePath);
+	                shoppingCartView.setVisible(true);
+	                ProductView.this.setVisible(false);
 	            } catch (Exception ex) {
 	                showMessage("Error adding " + productName + " to cart: " + ex.getMessage());
+	                ex.printStackTrace();
 	            }
 	        }
 

@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
@@ -15,6 +17,16 @@ public class ShoppingCartView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private static JLabel productNameLabel;
+	private static JLabel productImageLabel;
+	
+    public void setProductName(String productName) {
+        productNameLabel.setText(productName);
+    }
+    
+    public void setProductImage(String imagePath) {
+    	productImageLabel.setIcon(new ImageIcon(imagePath));
+    }
 
 	/**
 	 * Launch the application.
@@ -25,6 +37,8 @@ public class ShoppingCartView extends JFrame {
 				try {
 					ShoppingCartView frame = new ShoppingCartView();
 					frame.setVisible(true);
+					
+					frame.addToCart("productName");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,14 +74,14 @@ public class ShoppingCartView extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel productImage = new JLabel("");
-		productImage.setBounds(0, 0, 100, 104);
-		panel.add(productImage);
+		productImageLabel = new JLabel("");
+		productImageLabel.setBounds(0, 0, 100, 104);
+		panel.add(productImageLabel);
 		
-		JLabel productName = new JLabel("");
-		productName.setFont(new Font("SansSerif", Font.BOLD, 14));
-		productName.setBounds(110, 25, 190, 14);
-		panel.add(productName);
+		productNameLabel = new JLabel("");
+		productNameLabel.setFont(new Font("SansSerif", Font.BOLD, 14));
+		productNameLabel.setBounds(110, 25, 190, 14);
+		panel.add(productNameLabel);
 		
 		JButton increaseButton = new JButton("+");
 		increaseButton.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -96,4 +110,13 @@ public class ShoppingCartView extends JFrame {
 		removeLabel.setBounds(560, 62, 46, 14);
 		panel.add(removeLabel);
 	}
+	
+	public void addToCart(String productName) {
+		productNameLabel.setText(productName);
+	}
 }
+
+
+
+
+
