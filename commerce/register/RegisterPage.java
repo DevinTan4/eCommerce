@@ -144,6 +144,9 @@ public class RegisterPage extends JFrame {
                                 preparedStatement.setString(3, enteredPassword);
                                 preparedStatement.executeUpdate();
                             }
+                            
+                         // Add balance of 100000 to the new account
+                            addInitialBalance(connection, enteredUsername);
 
                             JOptionPane.showMessageDialog(RegisterPage.this, "Registration Successful!");
 
@@ -178,6 +181,15 @@ public class RegisterPage extends JFrame {
 		            }
 		        }
 		        return false;
+		    }
+			
+			private void addInitialBalance(Connection connection, String username) throws SQLException {
+		        String updateBalanceQuery = "UPDATE account_tbl SET balance = ? WHERE username = ?";
+		        try (PreparedStatement updateBalanceStatement = connection.prepareStatement(updateBalanceQuery)) {
+		            updateBalanceStatement.setDouble(1, 100000.0);
+		            updateBalanceStatement.setString(2, username);
+		            updateBalanceStatement.executeUpdate();
+		        }
 		    }
 		});
 		signUpButton.setBackground(new Color(239, 110, 32));

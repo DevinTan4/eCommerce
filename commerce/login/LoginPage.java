@@ -195,7 +195,10 @@ public class LoginPage extends JFrame {
 	            try (ResultSet resultSet = preparedStatement.executeQuery()) {
 	                if (resultSet.next()) {
 	                    int userId = resultSet.getInt("id_account"); // Adjust this based on your database schema
-	                    return new User(userId);
+	                    User user = new User(userId);
+	                    double balance = resultSet.getDouble("balance"); // Adjust this based on your database schema
+	                    user.setBalance(balance);
+	                    return user;
 	                }
 	            }
 	        }

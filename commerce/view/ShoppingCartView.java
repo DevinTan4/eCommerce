@@ -37,6 +37,7 @@ public class ShoppingCartView extends JFrame {
 	private static JLabel productImageLabel;
 	private static JLabel itemCountLabel;
 	private static JLabel subtotalPriceLabel;
+	private JLabel balanceLabel;
 	
 	private double productPrice = 0.0; // Initial with default value
 	private int itemCount = 1; // Initial begin item count
@@ -47,6 +48,12 @@ public class ShoppingCartView extends JFrame {
     
     public void setProductImage(String imagePath) {
     	productImageLabel.setIcon(new ImageIcon(imagePath));
+    }
+    
+    public void setBalance(double balance) {
+        // Your logic to display or update the balance in the view
+        // For example, if you have a JLabel to display the balance:
+        balanceLabel.setText("Balance: Rp " + balance);
     }
 
 	/**
@@ -162,6 +169,11 @@ public class ShoppingCartView extends JFrame {
                 removeFromCart();
             }
         });
+        
+        balanceLabel = new JLabel("Balance: Rp 0.0"); // You can set an initial value
+        balanceLabel.setFont(new Font("SansSerif", Font.BOLD, 12));
+        balanceLabel.setBounds(21, 305, 150, 23);
+        contentPane.add(balanceLabel);
     }
 
     // Passing the productInfo from ProductView
@@ -269,7 +281,7 @@ public class ShoppingCartView extends JFrame {
             clearProductInfo();
 
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception according to your application's needs
+            e.printStackTrace();
         }
     }
 

@@ -510,13 +510,42 @@ public class ProductView extends JFrame {
 	    return new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
 	            try {
-	                showMessage(productName + " added to cart successfully!");
-	                ShoppingCartView shoppingCartView = new ShoppingCartView();
-	                
-	                shoppingCartView.addToCart(productName, productPrice, 1);
-	                shoppingCartView.setProductImage(imagePath);
-	                shoppingCartView.setVisible(true);
-	                ProductView.this.setVisible(false);
+	            	// Check if the user is authenticated (has a balance)
+	                if (AuthenticationManager.isAuthenticated()) {
+	                    // Get the user's balance
+	                    double balance = AuthenticationManager.getBalance();
+
+	                    // Check if the user has enough balance to add the product to the cart
+	                    if (balance >= productPrice) {
+	                        // Subtract the product price from the user's balance
+	                        AuthenticationManager.subtractBalance(productPrice);
+
+	                        // Show a message indicating that the product is added to the cart
+	                        showMessage(productName + " added to cart successfully!");
+
+	                        // Create an instance of ShoppingCartView
+	                        ShoppingCartView shoppingCartView = new ShoppingCartView();
+
+	                        // Add the product to the cart in ShoppingCartView
+	                        shoppingCartView.addToCart(productName, productPrice, 1);
+
+	                        // Set the product image in ShoppingCartView
+	                        shoppingCartView.setProductImage(imagePath);
+
+	                        // Pass the updated balance to ShoppingCartView
+	                        shoppingCartView.setBalance(AuthenticationManager.getBalance());
+
+	                        // Make ShoppingCartView visible
+	                        shoppingCartView.setVisible(true);
+
+	                        // Hide the current ProductView
+	                        ProductView.this.setVisible(false);
+	                    } else {
+	                        showMessage("Insufficient balance. Please add funds to your account.");
+	                    }
+	                } else {
+	                    showMessage("User not authenticated. Please log in.");
+	                }
 	            } catch (Exception ex) {
 	                showMessage("Error adding " + productName + " to cart: " + ex.getMessage());
 	                ex.printStackTrace();
@@ -559,7 +588,7 @@ public class ProductView extends JFrame {
 	private void logout() {
         // Clear the current user's session
         AuthenticationManager.logout();
-    }
+    }	
 
     // Navigate to the login view
     private void navigateToLogin() {
