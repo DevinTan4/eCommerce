@@ -10,6 +10,7 @@ import commerce.manager.AuthenticationManager;
 import commerce.manager.ProductManager;
 import commerce.product.Product;
 import commerce.user.User;
+import commerce.login.*;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

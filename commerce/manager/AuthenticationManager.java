@@ -12,4 +12,8 @@ public class AuthenticationManager {
     public static User getLoggedInUser() {
         return loggedInUser;
     }
+    
+    public static void logout() {
+        loggedInUser = null;
+    }
 }

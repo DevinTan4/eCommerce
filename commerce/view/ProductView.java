@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import commerce.login.LoginPage;
+import commerce.manager.AuthenticationManager;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -473,6 +477,17 @@ public class ProductView extends JFrame {
 		historyIcon.setBounds(578, 11, 38, 22);
 		contentPane.add(historyIcon);
 		
+		JButton logoutButton = new JButton("Logout");
+        logoutButton.setBackground(new Color(239, 110, 32));
+        logoutButton.setForeground(new Color(255, 255, 255));
+        logoutButton.setBounds(10, 11, 100, 23);
+        contentPane.add(logoutButton);
+        logoutButton.addActionListener(e -> {
+            logout();
+            navigateToLogin(); // Replace with your desired destination after logout
+            dispose();
+        });
+		
 		// Add ActionListener to cartIcon
         cartIcon.addMouseListener(new MouseAdapter() {
             @Override
@@ -539,4 +554,16 @@ public class ProductView extends JFrame {
 	    // Hide the current ProductView
 	    this.setVisible(false);
 	}
+	
+	// Logout function
+	private void logout() {
+        // Clear the current user's session
+        AuthenticationManager.logout();
+    }
+
+    // Navigate to the login view
+    private void navigateToLogin() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.setVisible(true);
+    }
 }
