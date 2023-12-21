@@ -468,12 +468,25 @@ public class ProductView extends JFrame {
 		cartIcon.setBounds(619, 11, 28, 22);
 		contentPane.add(cartIcon);
 		
+		JLabel historyIcon = new JLabel("");
+		historyIcon.setIcon(new ImageIcon("C:\\Users\\LENOVO\\eclipse-workspace\\eCommerce\\src\\commerce.assets\\Icons\\history-icon (1).png"));
+		historyIcon.setBounds(578, 11, 38, 22);
+		contentPane.add(historyIcon);
+		
 		// Add ActionListener to cartIcon
         cartIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // Open ShoppingCartView when cartIcon is clicked
                 openShoppingCartView();
+            }
+        });
+        
+        historyIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Open HistoryView when historyIcon is clicked
+                openHistoryView();
             }
         });
 	}
@@ -485,7 +498,7 @@ public class ProductView extends JFrame {
 	                showMessage(productName + " added to cart successfully!");
 	                ShoppingCartView shoppingCartView = new ShoppingCartView();
 	                
-	                shoppingCartView.addToCart(productName, productPrice);
+	                shoppingCartView.addToCart(productName, productPrice, 1);
 	                shoppingCartView.setProductImage(imagePath);
 	                shoppingCartView.setVisible(true);
 	                ProductView.this.setVisible(false);
@@ -514,4 +527,16 @@ public class ProductView extends JFrame {
         // Hide the current ProductView
         this.setVisible(false);
     }
+	
+	//Open HistoryView function
+	private void openHistoryView() {
+	    // Create an instance of HistoryView
+	    HistoryView historyView = new HistoryView();
+
+	    // Make HistoryView visible
+	    historyView.setVisible(true);
+
+	    // Hide the current ProductView
+	    this.setVisible(false);
+	}
 }

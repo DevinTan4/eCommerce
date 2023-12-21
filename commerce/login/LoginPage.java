@@ -7,7 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
+import commerce.manager.AuthenticationManager;
 import commerce.register.RegisterPage;
+import commerce.user.User;
 import commerce.view.ProductView;
 
 import java.awt.FlowLayout;
@@ -109,23 +111,25 @@ public class LoginPage extends JFrame {
 		
 		JButton loginButton = new JButton("Login");
 		loginButton.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        String enteredUsername = usernameField.getText();
+		        String enteredPassword = passwordField.getText();
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String enteredUsername = usernameField.getText();
-                String enteredPassword = passwordField.getText();
-                
-                if (isValidLogin(enteredUsername, enteredPassword)) {
-                    JOptionPane.showMessageDialog(LoginPage.this, "Login Successful!");
-                    
-                    openProductView();
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(LoginPage.this, "Invalid username or password. Try again.");
-                    usernameField.setText("");
-                    passwordField.setText("");
-                }
-			}
+		        if (isValidLogin(enteredUsername, enteredPassword)) {
+		            User loggedInUser = getUserFromDatabase(enteredUsername); // You need to implement this method
+		            AuthenticationManager.setLoggedInUser(loggedInUser);
+
+		            JOptionPane.showMessageDialog(LoginPage.this, "Login Successful!");
+
+		            openProductView();
+		            dispose();
+		        } else {
+		            JOptionPane.showMessageDialog(LoginPage.this, "Invalid username or password. Try again.");
+		            usernameField.setText("");
+		            passwordField.setText("");
+		        }
+		    }
 		});
 		loginButton.setForeground(new Color(0, 0, 0));
 		loginButton.setBackground(new Color(239, 110, 32));
@@ -155,36 +159,52 @@ public class LoginPage extends JFrame {
 	}
 	
 	private boolean isValidLogin(String username, String password) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/account_db", "root", "")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/account_db", "root", "")) {
             String query = "SELECT COUNT(*) FROM account_tbl WHERE username = ? AND password = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    if (resultSet.next()) {
-                        return resultSet.getInt(1) > 0;
-                    }
+                    return resultSet.next() && resultSet.getInt(1) > 0;
                 }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return false;
-	}
+    }
 	
 	//Go to ProductView page
 	private void openProductView() {
-	    EventQueue.invokeLater(new Runnable() {
-	        public void run() {
-	            try {
-	                ProductView productView = new ProductView();
-	                productView.setVisible(true);
-	            } catch (Exception e) {
-	                e.printStackTrace();
+        EventQueue.invokeLater(() -> {
+            try {
+                ProductView productView = new ProductView();
+                productView.setVisible(true);
+                dispose();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+	
+	private User getUserFromDatabase(String username) {
+	    try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/account_db", "root", "")) {
+	        String query = "SELECT * FROM account_tbl WHERE username = ?";
+	        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	            preparedStatement.setString(1, username);
+	            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+	                if (resultSet.next()) {
+	                    int userId = resultSet.getInt("id_account"); // Adjust this based on your database schema
+	                    return new User(userId);
+	                }
 	            }
 	        }
-	    });
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return null;
 	}
+
 }
 
 	
